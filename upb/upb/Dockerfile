@@ -1,16 +1,8 @@
-#
-# BUILD
-#
-FROM maven:3.6.2-openjdk-8 AS build
-WORKDIR /app
-COPY . /app/
-RUN mvn clean package
+FROM adoptopenjdk/maven-openjdk8 AS build
+COPY . .
+RUN mvn clean package -DskipTests
 
-#
-# RUN
-#
-FROM openjdk:8-alpine
-WORKDIR /app
-COPY --from=build /app/target/*.jar /app/app.jar
+FROM openjdk:8-jdk-alpine
+COPY --from=build /target/upb-0.0.1-SNAPSHOT.jar demo.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","app.jar"]
+ENTRYPOINT ["java","-jar","demo.jar"]
