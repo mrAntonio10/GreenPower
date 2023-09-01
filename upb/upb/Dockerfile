@@ -1,7 +1,6 @@
 # Etapa de construcción
 FROM adoptopenjdk/maven-openjdk8 AS build
-COPY . /app
-WORKDIR /app
+COPY . .
 RUN mvn clean package -DskipTests
 
 # Etapa final
