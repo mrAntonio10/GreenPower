@@ -1,7 +1,7 @@
 # Etapa de construcción
 FROM maven:3.6.3-jdk-8 AS build
 COPY . .
-RUN mvn clean package -DskipTests
+RUN mvn clean install
 
 # Etapa final
 FROM openjdk:8-jdk-alpine
