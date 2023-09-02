@@ -1,6 +1,6 @@
 # Etapa de construcción
 FROM maven:3.6.3-jdk-8 AS build
-COPY . .
+COPY C://Users/'Jose Maria'/Desktop/UPB/'8 semestre'/GestionDeProyecto/GreenPower/upb/upb/pom.xml .
 RUN export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
 RUN mvn clean package -DskipTests
 
