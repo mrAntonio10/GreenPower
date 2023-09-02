@@ -52,9 +52,6 @@
 				<version>2.7.15</version>
 				<executions>
 					<execution>
-						<goals>
-							<goal>repackage</goal>
-						</goals>
 						<configuration>
 							<mainClass>com.upb.upb.UpbGestionApplication</mainClass>
 						</configuration>
