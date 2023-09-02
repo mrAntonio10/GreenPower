@@ -1,4 +1,11 @@
 # Etapa de construcción
+#FROM node:12.22.12
+##WORKDIR ./app
+#COPY . .
+#EXPOSE 8086
+#
+#CMD ["npm","run","start"]
+
 FROM maven:3.6.3-jdk-8 AS build
 COPY upb/upb/pom.xml .
 RUN export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
