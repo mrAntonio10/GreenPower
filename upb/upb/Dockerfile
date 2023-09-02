@@ -1,5 +1,5 @@
 # Etapa de construcción
-FROM adoptopenjdk/maven-openjdk8 AS build
+FROM maven:3.6.3-jdk-8 AS build
 COPY . .
 RUN mvn clean package -DskipTests
 
