@@ -50,7 +50,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<mainClass>upb.upb.UpbGestionApplication</mainClass>
+					<mainClass>com.upb.upb.UpbGestionApplication</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>
