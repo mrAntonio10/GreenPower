@@ -1,7 +1,8 @@
 # Etapa de construcción
 FROM maven:3.6.3-jdk-8 AS build
-COPY ../ ./
-RUN mvn clean install
+COPY . .
+RUN export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
+RUN mvn clean package -DskipTests
 
 # Etapa final
 FROM openjdk:8-jdk-alpine
