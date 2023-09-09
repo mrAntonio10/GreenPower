@@ -68,7 +68,7 @@
 				<executions>
 					<execution>
 						<configuration>
-							<mainClass>com.upb.upb.UpbGestionApplication</mainClass>
+							<mainClass>com.upb.upb.greenpower-backend.UpbGestionApplication</mainClass>
 						</configuration>
 					</execution>
 				</executions>

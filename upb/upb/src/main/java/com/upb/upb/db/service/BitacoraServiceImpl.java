@@ -24,7 +24,7 @@ public class BitacoraServiceImpl implements BitacoraService {
         for (Bitacora item: bitacoraList) {
             BitacoraDto dto = new BitacoraDto();
             dto.setId(item.getId());
-//            dto.setUser(item.getUser());
+            dto.setUser(item.getUser());
 //            dto.setIdHumedad(item.getIdHumedad());
 //            dto.setIdTemperatura(item.getIdTemperatura());
 //            dto.setFecha(item.getFecha());

@@ -15,7 +15,7 @@ import static org.springframework.http.ResponseEntity.ok;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/green")
+@RequestMapping("/api/bitacora")
 public class BitacoraController {
     @Autowired
     BitacoraService bitacoraService;
