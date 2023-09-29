@@ -23,24 +23,12 @@ public class BitacoraController {
     @GetMapping("/findAll")
     public ResponseEntity<List<BitacoraDto>> bitacoraFindAll(){
         try{
-            log.info("Accediendo a listar todas las bitacoras");
+            log .info("Accediendo a listar todas las bitacoras");
             return ok(bitacoraService.findAll());
         } catch (Exception e){
             log.info("Error inesperado {}", e);
             return ResponseEntity.badRequest().body(null);
         }
     }
-
-//    @GetMapping("/findByCode")
-//    public ResponseEntity<BitacoraDto> authActionFindByCode(@RequestParam("code") String code){
-//        try{
-//            log.info("Accediendo a findByCode: {}", code);
-//           AuthActionDto authActionDto = authActionService.findByCode(code);
-//           return ok(authActionDto);
-//        } catch (Exception e){
-//            log.info("Error inesperado {}", e);
-//            return ResponseEntity.badRequest().body(null);
-//        }
-//    }
 
 }

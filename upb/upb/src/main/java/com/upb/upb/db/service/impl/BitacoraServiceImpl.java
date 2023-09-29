@@ -1,7 +1,8 @@
-package com.upb.upb.db.service;
+package com.upb.upb.db.service.impl;
 
 import com.upb.upb.db.model.Bitacora;
 import com.upb.upb.db.repository.BitacoraRepository;
+import com.upb.upb.db.service.BitacoraService;
 import com.upb.upb.dto.BitacoraDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
