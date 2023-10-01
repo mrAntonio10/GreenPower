@@ -6,7 +6,6 @@ import { BitacoraComponent } from './principal/bitacora/bitacora.component';
 import {CommonModule} from "@angular/common";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +16,6 @@ import {FormsModule} from "@angular/forms";
     CommonModule,
     HttpClientModule,
     FormsModule,
-
   ],
   providers: [],
   bootstrap: [BitacoraComponent]
