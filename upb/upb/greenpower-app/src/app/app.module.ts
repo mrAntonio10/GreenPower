@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
 import { BitacoraComponent } from './principal/bitacora/bitacora.component';
 import {CommonModule} from "@angular/common";
 import {HttpClientModule} from "@angular/common/http";
@@ -11,23 +10,28 @@ import { RegistroComponent } from './principal/registro/registro.component';
 import { MenuPrincipalComponent } from './principal/menu-principal/menu-principal.component';
 import { ParametrosComponent } from './principal/parametros/parametros.component';
 import { ActivacionActuadoresComponent } from './principal/activacion-actuadores/activacion-actuadores.component';
+import {AppRoutingModule} from "./app-routing.module";
+import {RouterOutlet} from "@angular/router";
+import { PrincipalComponent } from './principal/principal/principal.component';
 @NgModule({
   declarations: [
-    AppComponent,
     BitacoraComponent,
     LogInComponent,
     RegistroComponent,
     MenuPrincipalComponent,
     ParametrosComponent,
-    ActivacionActuadoresComponent
+    ActivacionActuadoresComponent,
+    PrincipalComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
     HttpClientModule,
     FormsModule,
+    AppRoutingModule,
+    RouterOutlet
   ],
   providers: [],
-  bootstrap: [BitacoraComponent]
+  bootstrap: [PrincipalComponent]
 })
 export class AppModule { }
