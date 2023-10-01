@@ -3,7 +3,7 @@ import {Bitacora} from "../../model/bitacora/bitacora";
 import {BitacoraService} from "../../service/bitacoraService/bitacora.service";
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-bitacora',
   templateUrl: './bitacora.component.html',
   styleUrls: ['./bitacora.component.css']
 })
