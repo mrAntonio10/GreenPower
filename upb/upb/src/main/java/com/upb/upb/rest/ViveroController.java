@@ -42,7 +42,7 @@ public class ViveroController {
             log.info("Usuario no encontrado, message {}", e.getMessage());
 
             Map<String, Object> responseBody = new HashMap<>();
-            responseBody.put("mensaje", "Usuario con id " + id + " no encontrado");
+            responseBody.put("mensaje", "Vivero con id " + id + " no encontrado");
             responseBody.put("status", HttpStatus.NOT_FOUND.value() + " " + HttpStatus.NOT_FOUND.getReasonPhrase());
 
             return ResponseEntity.badRequest().body(responseBody);
@@ -58,9 +58,11 @@ public class ViveroController {
             return ok(viveroService.save(viveroNuevo));
         } catch (Exception e) {
             log.info("Error inesperado {}", e);
+
             Map<String, Object> responseBody = new HashMap<>();
-            responseBody.put("mensaje", "No se pudo guardar el usuario, error inesperado");
+            responseBody.put("mensaje", "No se pudo guardar el vivero, error inesperado");
             responseBody.put("status", HttpStatus.CONFLICT.value() + " " + HttpStatus.CONFLICT.getReasonPhrase());
+
             return ResponseEntity.badRequest().body(null);
         }
     }

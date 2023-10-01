@@ -15,6 +15,7 @@ export class BitacoraComponent implements OnInit{
   bitacoras: Bitacora[];
   title = "Bitacora";
 
+
   ngOnInit(): void {
     this.getBitacoras();
   }
