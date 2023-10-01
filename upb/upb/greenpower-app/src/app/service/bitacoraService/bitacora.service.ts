@@ -13,6 +13,6 @@ export class BitacoraService {
   }
 
   getBitacoraList(): Observable<Bitacora[]>{
-    return this.httpClient.get<Bitacora[]>(`${this.baseUrl}/findAll`)
+      return this.httpClient.get<Bitacora[]>(`${this.baseUrl}/findAll`)
   }
 }
