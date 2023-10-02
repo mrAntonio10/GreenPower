@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -31,19 +32,37 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     @Transactional
     public Long save(Usuario usuarioDto) {
-        Usuario usuario = new Usuario();
-        usuario.setId(null);
-        usuario.setRol(usuarioDto.getRol());
-        usuario.setNombre(usuarioDto.getNombre());
-        usuario.setPassword(usuarioDto.getPassword());
-        usuario.setNombreCompleto(usuarioDto.getNombreCompleto());
-        usuario.setEstado(usuarioDto.getEstado());
+        if (usuarioDto.getId() == null) {
+            Usuario usuario = new Usuario();
+            usuario.setId(null);
+            usuario.setRol(usuarioDto.getRol());
+            usuario.setNombre(usuarioDto.getNombre());
+            usuario.setPassword(usuarioDto.getPassword());
+            usuario.setNombreCompleto(usuarioDto.getNombreCompleto());
+            usuario.setEstado(usuarioDto.getEstado());
 
-        Optional<Vivero> viveroOpt = viveroRepository.findByIdAndEstadoFalse(usuarioDto.getVivero().getId());
-        if(viveroOpt.isPresent()){  //usuario con vivero
-            usuario.setVivero(viveroOpt.get());
+            Optional<Vivero> viveroOpt = viveroRepository.findByIdAndEstadoFalse(usuarioDto.getVivero().getId());
+            if (viveroOpt.isPresent()) {  //usuario con vivero
+                usuario.setVivero(viveroOpt.get());
+            }
+            usuario = usuarioRepository.save(usuario);
+            return usuario.getId();
+        } else {    //modificar usuario
+            Optional<Usuario> usuarioOpt = usuarioRepository.findByIdAndEstadoFalse(usuarioDto.getId());
+            if(!usuarioOpt.isPresent()){
+                throw new NoSuchElementException("Usuario no encontrada");
+            }
+            Usuario usuario = usuarioOpt.get();
+
+            usuario.setNombre(usuarioDto.getNombre());
+            usuario.setPassword(usuarioDto.getPassword());
+            usuario.setNombreCompleto(usuarioDto.getNombreCompleto());
+            usuario.setEstado(usuarioDto.getEstado());
+            usuario.setRol(usuarioDto.getRol());
+
+            usuario = usuarioRepository.save(usuario);
+            return usuario.getId();
+
         }
-        usuario = usuarioRepository.save(usuario);
-        return usuario.getId();
     }
 }

@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface PlantaService {
     List<Planta> findAll();
+    Planta findById(Long id);
+    Long save(Planta plantaDto);
 }

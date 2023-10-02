@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface ArduinoService {
     List<Arduino> findAll();
+    Arduino findById(Long id);
+    Long save(Arduino arduinoDto);
 }

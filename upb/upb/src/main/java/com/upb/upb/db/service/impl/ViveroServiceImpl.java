@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -30,13 +31,29 @@ public class ViveroServiceImpl implements ViveroService {
 
     @Override
     public Long save(Vivero viveroDto) {
-        Vivero vivero = new Vivero();
-        vivero.setId(null);
-        vivero.setNombre(viveroDto.getNombre());
-        vivero.setUbicacion(viveroDto.getUbicacion());
-        vivero.setEstado(viveroDto.getEstado());
+        if( viveroDto.getId() == null) {    //nuevo vivero
+            Vivero vivero = new Vivero();
+            vivero.setId(null);
+            vivero.setNombre(viveroDto.getNombre());
+            vivero.setUbicacion(viveroDto.getUbicacion());
+            vivero.setEstado(viveroDto.getEstado());
 
-        vivero = viveroRepository.save(vivero);
-        return vivero.getId();
+            vivero = viveroRepository.save(vivero);
+            return vivero.getId();
+        } else {
+            //actualizar planta
+            Optional<Vivero> viveroOpt = viveroRepository.findByIdAndEstadoFalse(viveroDto.getId());
+            if(!viveroOpt.isPresent()){
+                throw new NoSuchElementException("Vivero no encontrada");
+            }
+            Vivero vivero = viveroOpt.get();
+
+            vivero.setNombre(viveroDto.getNombre());
+            vivero.setEstado(viveroDto.getEstado());
+            vivero.setUbicacion(viveroDto.getUbicacion());
+
+            vivero = viveroRepository.save(vivero);
+            return vivero.getId();
+        }
     }
 }
