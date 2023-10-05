@@ -68,7 +68,7 @@ pipeline {
           parallel {
             stage("Desplegando en desarrollo"){
                 when {
-                  branch 'master'  //only run these steps on the master branch
+                  branch 'main'  //only run these steps on the master branch
                 }
                 stages{
                     stage('Compilando para despliegue') {
