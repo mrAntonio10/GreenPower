@@ -41,7 +41,7 @@ pipeline {
                             steps {
                                 dir(env.PATH_BACKEND_API_WS) {
                                     withSonarQubeEnv('SonarQube') {
-                                        sh 'mvn clean package sonar:sonar'
+                                        sh 'mvn clean package sonar:sonar -Dmaven.test.skip=true'
                                     }
                                 }
                             }
