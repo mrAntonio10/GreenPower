@@ -9,7 +9,9 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "VIVERO_ARDUINO_PLANTA")
+@Table(name = "VIVERO_ARDUINO_PLANTA",
+        uniqueConstraints = @UniqueConstraint(columnNames = {"ID_ARDUINO", "ID_PLANTA"})
+)
 public class Vivero_arduino_planta implements Serializable {
     @Id
     @SequenceGenerator(name = "SEQ_VAP_ID_GENERATOR", sequenceName = "SEQ_VAP_ID", allocationSize = 1)
@@ -17,15 +19,15 @@ public class Vivero_arduino_planta implements Serializable {
     @Column(name = "ID")
     private Long id;
 
-    @ManyToOne( fetch = FetchType.LAZY)
+    @ManyToOne( fetch = FetchType.EAGER)
     @JoinColumn( name = "ID_VIVERO", referencedColumnName = "id")
     private Vivero vivero;
 
-    @ManyToOne( fetch = FetchType.LAZY)
+    @ManyToOne( fetch = FetchType.EAGER)
     @JoinColumn( name = "ID_ARDUINO", referencedColumnName = "id")
-    private Arduino Arduino;
+    private Arduino arduino;
 
-    @ManyToOne( fetch = FetchType.LAZY)
+    @ManyToOne( fetch = FetchType.EAGER)
     @JoinColumn( name = "ID_PLANTA", referencedColumnName = "id")
     private Planta planta;
 }

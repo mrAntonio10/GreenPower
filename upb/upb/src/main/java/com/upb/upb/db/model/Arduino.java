@@ -23,6 +23,9 @@ public class Arduino implements Serializable {
     @Column(name = "SENSOR_ACTUADOR")
     private String sensor_actuador;
 
+    @Column(name = "PARAMETRO")
+    private Float parametro;
+
     @Column(name = "ESTADO")
     private Boolean estado;
 }

@@ -1,0 +1,21 @@
+//SAVE PLANTA
+{
+    "id": null,
+    "vivero": {
+        "id": 1
+    },
+    "planta": {
+        "id": null,
+        "nombre": "Rosa negra de viero",
+        "caracteristica": "Rosa pintado de negro en honor a Merlina de vivero"
+    },
+    "arduino": null
+}
+
+//SAVE ARDUINO
+{
+    "id": null,
+    "nombre": "temperatura de vivero",
+    "sensor_actuador": "sensor de vivero",
+    "parametro": 0.00
+}
