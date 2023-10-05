@@ -1,1 +1,59 @@
-<p>activacion-actuadores works!</p>
+<div class="top">
+  <div class="top1">
+    <img src="../../../assets/img/cantuta.png" width="130" height="80">
+
+  </div>
+  <div class="top2">
+    <h2>GREEN POWER</h2>
+
+  </div>
+  <div class="top3">
+    <a (click)="navegar('home')">Log Out</a>
+  </div>
+</div>
+
+<div class="boton" >
+  <h1>Activación automática</h1>
+
+  <form autocomplete="off">
+    <div class="container">
+
+      <div class="box">
+        <span>Sistema de riego</span>
+        <div class="input-box">
+          <div>
+            <input type="text" name="diagnostico" placeholder="Tiempo de activación" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="box">
+        <span>Focos de calor</span>
+        <div class="input-box">
+          <div>
+            <input type="text" name="diagnostico" placeholder="Tiempo de activación" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="box">
+        <span>Ventiladores</span>
+        <div class="input-box">
+          <div>
+            <input type="text" name="diagnostico" placeholder="Tiempo de activación" required>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <button (click)="navegar('menu-principal')">
+        <span>Atras</span>
+      </button>
+      <br>
+      <button>
+        <span>Siguiente</span>
+      </button>
+
+    </div>
+  </form>
+</div>

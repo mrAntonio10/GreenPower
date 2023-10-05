@@ -13,6 +13,7 @@ import { ActivacionActuadoresComponent } from './principal/activacion-actuadores
 import {AppRoutingModule} from "./app-routing.module";
 import {RouterOutlet} from "@angular/router";
 import { PrincipalComponent } from './principal/principal/principal.component';
+import { AppComponent } from './app.component';
 @NgModule({
   declarations: [
     BitacoraComponent,
@@ -21,7 +22,8 @@ import { PrincipalComponent } from './principal/principal/principal.component';
     MenuPrincipalComponent,
     ParametrosComponent,
     ActivacionActuadoresComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +34,6 @@ import { PrincipalComponent } from './principal/principal/principal.component';
     RouterOutlet
   ],
   providers: [],
-  bootstrap: [LogInComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,32 +1,42 @@
+<div class="top">
+  <div class="top1">
+    <img src="../../../assets/img/cantuta.png" width="130" height="80">
+
+  </div>
+  <div class="top2">
+    <h2>GREEN POWER</h2>
+
+  </div>
+  <div class="top3">
+    <a (click)="navegar('home')">Log Out</a>
+  </div>
+</div>
+
 <div class="container">
 
-  <section class="clinica">
-    <h1>Parametros</h1>
-    <img src="../../../assets/img/curriculum.png" width="200" height="200">
-    <a href="registro_clinica.php">Registro de Clínica</a>
-    <a href="tabla_registros_clinica.php?filtro=ingresados">Mostrar Registros</a>
-  </section>
-
-  <section class="inventario">
-    <h1>Activacion</h1>
+  <section class="opcion">
+    <h1>Parámetros</h1>
     <img src="../../../assets/img/invernadero.png" width="200" height="200">
-    <a href="registro_producto.php">Registro de Producto</a>
-    <a href="tabla_productos.php">Mostrar Productos</a>
+    <a (click)="navegar('parametros')">Ingresar</a>
   </section>
 
-  <section class="ventas">
+  <section class="opcion">
+    <h1>Activación</h1>
+    <img src="../../../assets/img/tarjeta-madre.png" width="200" height="200">
+    <a (click)="navegar('activacion')">Ingresar</a>
+  </section>
+
+  <section class="opcion">
     <h1>Ventas</h1>
     <img src="../../../assets/img/registro-en-linea.png" width="200" height="200">
-    <a href="registro_venta.php">Realizar Venta</a>
-    <a href="tabla_ventas.php">Mostrar Ventas</a>
-    <a href="tabla_envolturas.php">Envoltorio/Adorno</a>
+    <a (click)="navegar('parametros')">Ingresar</a>
   </section>
 
 
-  <section class="administracion">
-    <img src="../../../assets/img/tarjeta-madre.png" width="200" height="200">
+  <section class="opcion">
     <h1>Administración</h1>
-
+    <img src="../../../assets/img/curriculum.png" width="200" height="200">
+    <a (click)="navegar('parametro')">Ingresar</a>
   </section>
 
 </div>

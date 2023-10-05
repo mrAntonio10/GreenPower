@@ -1,1 +1,55 @@
-<p>parametros works!</p>
+<div class="top">
+  <div class="top1">
+    <img src="../../../assets/img/cantuta.png" width="130" height="80">
+
+  </div>
+  <div class="top2">
+    <h2>GREEN POWER</h2>
+
+  </div>
+  <div class="top3">
+    <a (click)="navegar('home')">Log Out</a>
+  </div>
+</div>
+
+<div class="boton" >
+  <h1>Ajuste de parámetros</h1>
+
+  <form autocomplete="off">
+    <div class="container">
+
+        <div class="box">
+          <span>Parámetros de humedad</span>
+          <div class="input-box">
+            <div>
+              <input type="text" name="diagnostico" placeholder="Máximo" required>
+            </div>
+            <div>
+              <input type="text" name="diagnostico" placeholder="Mínimo" required>
+            </div>
+          </div>
+        </div>
+
+      <div class="box">
+        <span>Parámetros de temperatura</span>
+        <div class="input-box">
+          <div>
+            <input type="text" name="diagnostico" placeholder="Máximo" required>
+          </div>
+          <div>
+            <input type="text" name="diagnostico" placeholder="Mínimo" required>
+          </div>
+        </div>
+      </div>
+      <br>
+      <button (click)="navegar('menu-principal')">
+        <span>Atras</span>
+      </button>
+      <br>
+      <button>
+        <span>Confirmar</span>
+      </button>
+
+    </div>
+  </form>
+</div>

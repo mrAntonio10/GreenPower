@@ -10,7 +10,7 @@ export class MenuPrincipalComponent {
   constructor(private router: Router) {
   }
 
-  navegar() {
-    this.router.navigate(['/registro']);
+  navegar(ruta : string) {
+    this.router.navigate(['/'+ruta]);
   }
 }

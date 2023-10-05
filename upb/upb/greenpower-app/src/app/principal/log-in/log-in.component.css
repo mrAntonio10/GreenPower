@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 90vh;
+  min-height: 100vh;
 }
 
 .container {
@@ -30,6 +30,7 @@ header {
 }
 
 .input-field .input {
+  box-sizing: unset !important;
   height: 45px;
   width: 87%;
   border: none;
@@ -68,4 +69,13 @@ i {
 
 .submit:hover {
   box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
+}
+
+.fondo {
+  width: 100%;
+  background-image: url("../../../assets/img/bg.webp");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
