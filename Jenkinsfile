@@ -15,7 +15,7 @@ pipeline {
                 checkout scm
             }
         }
-        
+
 
         stage('Compilando..') {
             parallel {
@@ -32,7 +32,7 @@ pipeline {
                         stage('Junit') {
                             steps {
                                 ws(env.PATH_BACKEND_API_WS) {
-                                    sh 'mvn test'
+                                    sh 'mvn clean'
                                 }
                             }
                         }
@@ -92,13 +92,13 @@ pipeline {
     }
     post {
         failure {
-            mail to: 'rlaredo@mc4.com.bo', cc: "rchipana@mc4.com.bo, mquispe@mc4.com.bo", charset: "UTF-8",
+            mail to: 'rlaredo@mc4.com.bo', cc: "", charset: "UTF-8",
                     subject: ": ${currentBuild.fullDisplayName}",
                     body: "Se genero un error al ejecutor de tareas de jenkins. ${env.BUILD_URL}"
         }
 
         success {
-            mail to: 'rlaredo@mc4.com.bo', cc: "rchipana@mc4.com.bo, mquispe@mc4.com.bo", charset: "UTF-8",
+            mail to: 'rlaredo@mc4.com.bo', cc: "", charset: "UTF-8",
                     subject: ": ${currentBuild.fullDisplayName}",
                     body: "La aplicación se ejecutó exitosamente" +
                             "" +
