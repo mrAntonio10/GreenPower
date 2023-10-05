@@ -9,9 +9,9 @@ import {PrincipalComponent} from "./principal/principal/principal.component";
 //Rutas de navegacion
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
-  { path: 'home', component: MenuPrincipalComponent},
+  { path: 'home', component: LogInComponent},
   { path: 'registro', component: RegistroComponent},
-  { path: 'logIng', component: LogInComponent}
+  { path: 'menu-principal', component: MenuPrincipalComponent}
 ]
 
 @NgModule({

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-log-in',
+  selector: 'app-root',
   templateUrl: './log-in.component.html',
   styleUrls: ['./log-in.component.css']
 })

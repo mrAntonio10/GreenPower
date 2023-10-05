@@ -32,6 +32,6 @@ import { PrincipalComponent } from './principal/principal/principal.component';
     RouterOutlet
   ],
   providers: [],
-  bootstrap: [PrincipalComponent]
+  bootstrap: [LogInComponent]
 })
 export class AppModule { }
