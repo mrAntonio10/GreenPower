@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild  } from '@angular/core';
 import {Router} from "@angular/router";
+import { MatTable } from '@angular/material/table';
 
 @Component({
   selector: 'app-administracion',
@@ -9,6 +10,11 @@ import {Router} from "@angular/router";
 export class AdministracionComponent {
   constructor(private router: Router) {
   }
+  @ViewChild(MatTable) tabla1!: MatTable<any>;
+  columnas: string[] = ['codigo', 'descripcion', 'precio', 'borrar'];
+  datos: any[] = [
+
+  ]
   navegar(ruta : string) {
     this.router.navigate(['/'+ruta]);
   }
