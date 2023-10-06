@@ -36,6 +36,8 @@ public class ViveroArduinoPlantaServiceImpl implements ViveroArduinoPlantaServic
         if(viveroArduinoPlantaDto.getId() == null){ //nueva relacion vivero_arduino_planta
             Vivero_arduino_planta vap = new Vivero_arduino_planta();
             Optional<Vivero> vivero = viveroRepository.findByIdAndEstadoFalse(viveroArduinoPlantaDto.getVivero().getId());
+            if(!vivero.isPresent())
+                throw new NoSuchElementException("VAP no encontrada");
             vap.setVivero(vivero.get());
 
             if(viveroArduinoPlantaDto.getPlanta() != null){ //se registra planta
