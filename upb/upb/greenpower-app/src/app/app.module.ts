@@ -7,23 +7,21 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import { LogInComponent } from './principal/log-in/log-in.component';
 import { RegistroComponent } from './principal/registro/registro.component';
-import { MenuPrincipalComponent } from './principal/menu-principal/menu-principal.component';
 import { ParametrosComponent } from './principal/parametros/parametros.component';
 import { ActivacionActuadoresComponent } from './principal/activacion-actuadores/activacion-actuadores.component';
 import {AppRoutingModule} from "./app-routing.module";
 import {RouterOutlet} from "@angular/router";
-import { PrincipalComponent } from './principal/principal/principal.component';
 import { AppComponent } from './app.component';
+import { AdministracionComponent } from './principal/administracion/administracion.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 @NgModule({
   declarations: [
     BitacoraComponent,
     LogInComponent,
     RegistroComponent,
-    MenuPrincipalComponent,
     ParametrosComponent,
     ActivacionActuadoresComponent,
-    PrincipalComponent,
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +29,8 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    RouterOutlet
+    RouterOutlet,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
