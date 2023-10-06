@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -70,7 +71,7 @@ public class ViveroArduinoPlantaServiceImpl implements ViveroArduinoPlantaServic
     public List<Vivero_arduino_planta> findAllPlantaByViveroId(Long id) {
         Optional<List<Vivero_arduino_planta>> respuesta  = viveroArduinoPlantaRepository.findAllPlantaByViveroId(id);
         if(!respuesta.isPresent())
-            return null;
+            throw new NoSuchElementException("VAP no encontrada");
         return respuesta.get();
     }
 
@@ -78,7 +79,7 @@ public class ViveroArduinoPlantaServiceImpl implements ViveroArduinoPlantaServic
     public List<Vivero_arduino_planta> findAllArduinoByViveroId(Long id) {
         Optional<List<Vivero_arduino_planta>> respuesta  = viveroArduinoPlantaRepository.findAllArduinoByViveroId(id);
         if(!respuesta.isPresent())
-            return null;
+            throw new NoSuchElementException("VAP no encontrada");
         return respuesta.get();
     }
 

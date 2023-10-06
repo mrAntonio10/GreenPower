@@ -26,7 +26,7 @@ public class ViveroServiceImpl implements ViveroService {
     public Vivero findById(Long id) {
         Optional<Vivero> respuesta = viveroRepository.findByIdAndEstadoFalse(id);
         if(!respuesta.isPresent())
-            return null;
+            throw new NoSuchElementException("Vivero no encontrada");
         return respuesta.get();
     }
 

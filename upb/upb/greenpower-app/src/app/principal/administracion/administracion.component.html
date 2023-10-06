@@ -1,85 +1,110 @@
-<div class="top">
-  <div class="top1">
-    <img src="../../../assets/img/cantuta.png" width="130" height="80">
+<table mat-table [dataSource]="datos" class="mat-elevation-z8" #tabla1>
 
-  </div>
-  <div class="top2">
-    <h2>GREEN POWER</h2>
+  <ng-container matColumnDef="codigo">
+    <th mat-header-cell *matHeaderCellDef> Código </th>
+    <td mat-cell *matCellDef="let articulo"> {{articulo.codigo}} </td>
+  </ng-container>
 
-  </div>
-  <div class="top3">
-    <a (click)="navegar('home')">Log Out</a>
-  </div>
-</div>
+  <ng-container matColumnDef="descripcion">
+    <th mat-header-cell *matHeaderCellDef> Descripción </th>
+    <td mat-cell *matCellDef="let articulo"> {{articulo.descripcion}} </td>
+  </ng-container>
 
-<div class="boton" >
-  <h1>Administración</h1>
-<!--  <mat-card-content>-->
-  <form autocomplete="off">
-    <div class="container">
-
-      <div class="box">
-        <span>Rol</span>
-        <div class="input-box">
-          <div class="divrol">
-            <select  class="selectrol" name="rol" id="rol">
-              <option value="Administrador">Administración</option>
-              <option value="Normal">Normal</option>
-            </select>
-          </div>
-        </div>
-      </div>
+  <ng-container matColumnDef="precio">
+    <th mat-header-cell *matHeaderCellDef> Precio </th>
+    <td mat-cell *matCellDef="let articulo"> {{articulo.precio}} </td>
+  </ng-container>
 
 
-      <div class="box">
-        <span>Nombre usuario</span>
-        <div class="input-box">
-          <div>
-            <input type="Text" name="nombreusuario" placeholder="Nombre Usuario" required>
-          </div>
-        </div>
-      </div>
 
-      <div class="box">
-        <span>Password</span>
-        <div class="input-box">
-          <div>
-            <input type="password" name="passwdusuario" placeholder="password" required>
-          </div>
-        </div>
-      </div>
-      <div class="box">
-        <span>Nombre Completo</span>
-        <div class="input-box">
-          <input type="text" name="nombrecompleto" placeholder="Nombre Completo" required>
-        </div>
-      </div>
-      <div class="box">
-        <span>Estado</span>
-        <div class="divestado">
-          <div class="tipoestado">
-            <input class="txtestado" type="radio" id="activo" name="activo" value="activo" required>
-            <span>Activo</span>
-          </div>
-          <div class="tipoestado">
-            <input class="txtestado" type="radio" id="inactivo" name="inactivo" value="inactivo" required>
-            <span>Inactivo</span>
-          </div>
-        </div>
-      </div>
-
-      <br>
-      <button (click)="navegar('menu-principal')">
-        <span>Atras</span>
-      </button>
-      <br>
-      <button>
-        <span>Siguiente</span>
-      </button>
-
-    </div>
-  </form>
+  <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+  <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+</table>
 
 
-<!--  </mat-card-content>-->
-</div>
+
+<!--<div class="top">-->
+<!--  <div class="top1">-->
+<!--    <img src="../../../assets/img/cantuta.png" width="130" height="80">-->
+
+<!--  </div>-->
+<!--  <div class="top2">-->
+<!--    <h2>GREEN POWER</h2>-->
+
+<!--  </div>-->
+<!--  <div class="top3">-->
+<!--    <a (click)="navegar('home')">Log Out</a>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--<div class="boton" >-->
+<!--  <h1>Administración</h1>-->
+<!--&lt;!&ndash;  <mat-card-content>&ndash;&gt;-->
+<!--  <form autocomplete="off">-->
+<!--    <div class="container">-->
+
+<!--      <div class="box">-->
+<!--        <span>Rol</span>-->
+<!--        <div class="input-box">-->
+<!--          <div class="divrol">-->
+<!--            <select  class="selectrol" name="rol" id="rol">-->
+<!--              <option value="Administrador">Administración</option>-->
+<!--              <option value="Normal">Normal</option>-->
+<!--            </select>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+
+<!--      <div class="box">-->
+<!--        <span>Nombre usuario</span>-->
+<!--        <div class="input-box">-->
+<!--          <div>-->
+<!--            <input type="Text" name="nombreusuario" placeholder="Nombre Usuario" required>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div class="box">-->
+<!--        <span>Password</span>-->
+<!--        <div class="input-box">-->
+<!--          <div>-->
+<!--            <input type="password" name="passwdusuario" placeholder="password" required>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="box">-->
+<!--        <span>Nombre Completo</span>-->
+<!--        <div class="input-box">-->
+<!--          <input type="text" name="nombrecompleto" placeholder="Nombre Completo" required>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="box">-->
+<!--        <span>Estado</span>-->
+<!--        <div class="divestado">-->
+<!--          <div class="tipoestado">-->
+<!--            <input class="txtestado" type="radio" id="activo" name="activo" value="activo" required>-->
+<!--            <span>Activo</span>-->
+<!--          </div>-->
+<!--          <div class="tipoestado">-->
+<!--            <input class="txtestado" type="radio" id="inactivo" name="inactivo" value="inactivo" required>-->
+<!--            <span>Inactivo</span>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <br>-->
+<!--      <button (click)="navegar('menu-principal')">-->
+<!--        <span>Atras</span>-->
+<!--      </button>-->
+<!--      <br>-->
+<!--      <button>-->
+<!--        <span>Siguiente</span>-->
+<!--      </button>-->
+
+<!--    </div>-->
+<!--  </form>-->
+
+
+<!--&lt;!&ndash;  </mat-card-content>&ndash;&gt;-->
+<!--</div>-->

@@ -27,7 +27,7 @@ public class PlantaServiceImpl implements PlantaService {
     public Planta findById(Long id) {
         Optional<Planta> respuesta = plantaRepository.findByIdAndEstadoFalse(id);
         if(!respuesta.isPresent())
-            return null;
+            throw new NoSuchElementException("Planta no encontrada");
         return respuesta.get();
     }
 

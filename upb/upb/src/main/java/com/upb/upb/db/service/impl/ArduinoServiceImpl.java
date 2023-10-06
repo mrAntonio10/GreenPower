@@ -27,7 +27,7 @@ public class ArduinoServiceImpl implements ArduinoService {
     public Arduino findById(Long id) {
         Optional<Arduino> respuesta = arduinoRepository.findByIdAndEstadoFalse(id);
         if (!respuesta.isPresent())
-            return null;
+            throw new NoSuchElementException("Arduino no encontrada");
         return respuesta.get();
     }
 
