@@ -20,19 +20,20 @@ public class ArduinoServiceImpl implements ArduinoService {
 
     @Override
     public List<Arduino> findAll() {
-        List<Arduino> respuesta = arduinoRepository.findAllByEstadoFalse();
-        return respuesta;
+        return arduinoRepository.findAllByEstadoFalse();
     }
 
     @Override
     public Arduino findById(Long id) {
         Optional<Arduino> respuesta = arduinoRepository.findByIdAndEstadoFalse(id);
+        if (!respuesta.isPresent())
+            return null;
         return respuesta.get();
     }
 
     @Override
     public Long save(Arduino arduinoDto) {
-        if(arduinoDto.getId() == null){ //nuevo arduino
+        if (arduinoDto.getId() == null) { //nuevo arduino
             Arduino arduino = new Arduino();
             arduino.setNombre(arduinoDto.getNombre());
             arduino.setSensor_actuador(arduinoDto.getSensor_actuador());
@@ -43,7 +44,7 @@ public class ArduinoServiceImpl implements ArduinoService {
             return arduino.getId();
         } else {    //actualizar arduino
             Optional<Arduino> arduinoOpt = arduinoRepository.findByIdAndEstadoFalse(arduinoDto.getId());
-            if(!arduinoOpt.isPresent()){
+            if (!arduinoOpt.isPresent()) {
                 throw new NoSuchElementException("Arduino no encontrada");
             }
             Arduino arduino = arduinoOpt.get();

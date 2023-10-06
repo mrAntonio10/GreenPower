@@ -32,7 +32,7 @@ public class Usuario implements Serializable {
     @Column(name = "ESTADO")
     private Boolean estado;
 
-    @OneToOne( fetch = FetchType.EAGER)
+    @OneToOne( fetch = FetchType.LAZY)
     @JoinColumn( name = "ID_VIVERO", referencedColumnName = "id")
     private Vivero vivero;
 }

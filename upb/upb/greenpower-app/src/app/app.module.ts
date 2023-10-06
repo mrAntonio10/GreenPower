@@ -14,6 +14,11 @@ import {AppRoutingModule} from "./app-routing.module";
 import {RouterOutlet} from "@angular/router";
 import { PrincipalComponent } from './principal/principal/principal.component';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 @NgModule({
   declarations: [
     BitacoraComponent,
@@ -23,7 +28,8 @@ import { AppComponent } from './app.component';
     ParametrosComponent,
     ActivacionActuadoresComponent,
     PrincipalComponent,
-    AppComponent
+    AppComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,11 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    RouterOutlet
+    RouterOutlet,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatInputModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

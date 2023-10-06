@@ -20,13 +20,14 @@ public class PlantaServiceImpl implements PlantaService {
 
     @Override
     public List<Planta> findAll() {
-        List<Planta> respuesta = plantaRepository.findAllByEstadoFalse();
-        return respuesta;
+        return plantaRepository.findAllByEstadoFalse();
     }
 
     @Override
     public Planta findById(Long id) {
         Optional<Planta> respuesta = plantaRepository.findByIdAndEstadoFalse(id);
+        if(!respuesta.isPresent())
+            return null;
         return respuesta.get();
     }
 

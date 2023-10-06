@@ -19,13 +19,14 @@ public class ViveroServiceImpl implements ViveroService {
 
     @Override
     public List<Vivero> findAll() {
-        List<Vivero> respuesta = viveroRepository.findAllByEstadoFalse();
-        return  respuesta;
+        return  viveroRepository.findAllByEstadoFalse();
     }
 
     @Override
     public Vivero findById(Long id) {
         Optional<Vivero> respuesta = viveroRepository.findByIdAndEstadoFalse(id);
+        if(!respuesta.isPresent())
+            return null;
         return respuesta.get();
     }
 
