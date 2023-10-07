@@ -13,7 +13,7 @@ export class PruebaTablaComponent implements OnInit {
   constructor(private arduinoService: ArduinoService,
               ) {}
 
-  displayedColumns: string[] = ['id', 'nombre']; //Headers table
+  displayedColumns: string[] = ['id', 'nombre', 'sensor_actuador']; //Headers table
   arduinos: Arduino[] = []; //lista de respuesta REST
   // dataSource = new MatTableDataSource<Arduino>(this.arduinos);  //data
   dataSource: any;
@@ -28,11 +28,21 @@ export class PruebaTablaComponent implements OnInit {
   }
   // @ts-ignore
   obtenerArduinos(): Arduino[]{
-    this.arduinoService.getArduinos().subscribe((data: any) => {
+    this.arduinoService.getArduinos().subscribe((data: any) => {  //consumir servicio
       console.log(data);
       this.arduinos = data;
       this.dataSource = new MatTableDataSource<Arduino>(this.arduinos);
       this.dataSource.paginator = this.paginator;
+    });
+  }
+
+  // @ts-ignore
+  obtenerArduinosId(id: number): Arduino[]{
+    this.arduinoService.getArduinoById(id).subscribe((data: any) => {  //consumir servicio
+      console.log(data);
+      this.arduinos = data;
+      this.dataSource = new MatTableDataSource<Arduino>(this.arduinos);
+      this.dataSource .paginator = this.paginator;
     });
   }
 }

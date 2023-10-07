@@ -1,10 +1,5 @@
 <div class="mat-elevation-z8">
-<!--  <li *ngFor="let items of arduinos">-->
-<!--    {{ items.id }}-->
-<!--    {{ items.nombre }}-->
-<!--    {{ items.estado }}-->
-<!--    {{ items.parametroMax }}-->
-<!--  </li>-->
+
   <table mat-table [dataSource]="dataSource">
 
     <!-- Position Column -->
@@ -17,6 +12,12 @@
     <ng-container matColumnDef="nombre">
       <th mat-header-cell *matHeaderCellDef> Name </th>
       <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+    </ng-container>
+
+    <!-- sensor actuador Column -->
+    <ng-container matColumnDef="sensor_actuador">
+      <th mat-header-cell *matHeaderCellDef> Sensor/Actuador </th>
+      <td mat-cell *matCellDef="let element"> {{element.sensor_actuador}} </td>
     </ng-container>
 
 <!--    &lt;!&ndash; Weight Column &ndash;&gt;-->
