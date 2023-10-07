@@ -20,6 +20,24 @@
       <td mat-cell *matCellDef="let element"> {{element.sensor_actuador}} </td>
     </ng-container>
 
+    <!-- sensor estado Column -->
+    <ng-container matColumnDef="estado">
+      <th mat-header-cell *matHeaderCellDef> Sensor/Estado </th>
+      <td mat-cell *matCellDef="let element"> {{element.estado}} </td>
+    </ng-container>
+
+    <!-- parametroMax Column -->
+    <ng-container matColumnDef="parametroMax">
+      <th mat-header-cell *matHeaderCellDef> Sensor/Max </th>
+      <td mat-cell *matCellDef="let element"> {{element.parametroMax}} </td>
+    </ng-container>
+
+    <!-- parametroMin Column -->
+    <ng-container matColumnDef="parametroMin">
+      <th mat-header-cell *matHeaderCellDef> Sensor/Min </th>
+      <td mat-cell *matCellDef="let element"> {{element.parametroMin}} </td>
+    </ng-container>
+
 <!--    &lt;!&ndash; Weight Column &ndash;&gt;-->
 <!--    <ng-container matColumnDef="weight">-->
 <!--      <th mat-header-cell *matHeaderCellDef> Weight </th>-->

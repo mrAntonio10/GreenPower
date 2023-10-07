@@ -7,19 +7,21 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AppRoutingModule} from "../../app-routing.module";
 import {RouterOutlet} from "@angular/router";
 import {MatTableModule} from "@angular/material/table";
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    CommonModule,
-    HttpClientModule,
-    FormsModule,
-    AppRoutingModule,
-    RouterOutlet,
-    ReactiveFormsModule,
-    MatTableModule,
+    imports: [
+        BrowserModule,
+        CommonModule,
+        HttpClientModule,
+        FormsModule,
+        AppRoutingModule,
+        RouterOutlet,
+        ReactiveFormsModule,
+        MatTableModule,
+        MatPaginatorModule,
 
-  ],
+    ],
   exports: [],
   declarations: [AdministracionComponent],
   providers: [],

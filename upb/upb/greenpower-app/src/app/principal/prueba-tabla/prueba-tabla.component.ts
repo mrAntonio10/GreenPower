@@ -13,7 +13,7 @@ export class PruebaTablaComponent implements OnInit {
   constructor(private arduinoService: ArduinoService,
               ) {}
 
-  displayedColumns: string[] = ['id', 'nombre', 'sensor_actuador']; //Headers table
+  displayedColumns: string[] = ['id', 'nombre', 'sensor_actuador','estado','parametroMax','parametroMin']; //Headers table
   arduinos: Arduino[] = []; //lista de respuesta REST
   // dataSource = new MatTableDataSource<Arduino>(this.arduinos);  //data
   dataSource: any;
