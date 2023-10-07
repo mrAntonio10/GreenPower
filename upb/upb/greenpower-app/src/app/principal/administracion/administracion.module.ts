@@ -6,6 +6,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AppRoutingModule} from "../../app-routing.module";
 import {RouterOutlet} from "@angular/router";
+import {MatTableModule} from "@angular/material/table";
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import {RouterOutlet} from "@angular/router";
     AppRoutingModule,
     RouterOutlet,
     ReactiveFormsModule,
+    MatTableModule,
 
   ],
   exports: [],

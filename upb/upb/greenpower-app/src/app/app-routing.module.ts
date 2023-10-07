@@ -7,6 +7,7 @@ import {MenuPrincipalComponent} from "./principal/menu-principal/menu-principal.
 import {ParametrosComponent} from "./principal/parametros/parametros.component";
 import {ActivacionActuadoresComponent} from "./principal/activacion-actuadores/activacion-actuadores.component";
 import {AdministracionComponent} from "./principal/administracion/administracion.component";
+import {PruebaTablaComponent} from "./principal/prueba-tabla/prueba-tabla.component";
 
 //Rutas de navegacion
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'parametros', component: ParametrosComponent},
   { path: 'activacion', component: ActivacionActuadoresComponent},
   { path: 'administracion', component: AdministracionComponent},
+  { path: 'tabla', component: PruebaTablaComponent},
 ]
 
 @NgModule({

@@ -18,6 +18,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { PruebaTablaComponent } from './principal/prueba-tabla/prueba-tabla.component';
+import {MatPaginatorModule} from "@angular/material/paginator";
 @NgModule({
   declarations: [
     BitacoraComponent,
@@ -26,6 +28,7 @@ import { MatButtonModule } from '@angular/material/button';
     ParametrosComponent,
     ActivacionActuadoresComponent,
     AppComponent,
+    PruebaTablaComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatTableModule,
     MatInputModule,
     MatButtonModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
