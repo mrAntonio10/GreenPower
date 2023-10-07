@@ -7,12 +7,12 @@ import {Usuario} from "../../model/usuario/usuario";
   providedIn: 'root'
 })
 export class UsuarioService {
-  private baseUrl = "http://localhost:8084/api/usuario";
+  private baseUrl = "http://localhost:8084/api/usuarios";
 
   constructor(private httpClient: HttpClient) {
   }
 
   getUsuarioList(): Observable<Usuario[]>{
-    return this.httpClient.get<Usuario[]>(`${this.baseUrl}/findAll`)
+    return this.httpClient.get<Usuario[]>(`${this.baseUrl}`)
   }
 }
