@@ -7,12 +7,15 @@ import {ViveroArduinoPlanta} from "../../model/viveroArduinoPlanta/viveroArduino
   providedIn: 'root'
 })
 export class ViveroArduinoPlantaService {
-  private baseUrl = "http://localhost:8084/api/viveroArduinoPlanta";
+  private baseUrl = "http://localhost:8084/api/vaps";
 
   constructor(private httpClient: HttpClient) {
   }
 
-  getViveroArduinoPlantaList(): Observable<ViveroArduinoPlanta[]>{
-    return this.httpClient.get<ViveroArduinoPlanta[]>(`${this.baseUrl}/findAll`)
+  getViveroArduinoPlantaList(id: number): Observable<ViveroArduinoPlanta[]>{
+    return this.httpClient.get<ViveroArduinoPlanta[]>(`${this.baseUrl}`+id)
+  }
+  getVAPArduinoList(idArduino: number): Observable<ViveroArduinoPlanta[]>{
+    return this.httpClient.get<ViveroArduinoPlanta[]>(`${this.baseUrl}`+idArduino)
   }
 }

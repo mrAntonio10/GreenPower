@@ -7,7 +7,7 @@ import {Bitacora} from "../../model/bitacora/bitacora";
   providedIn: 'root'
 })
 export class BitacoraService {
-  private baseUrl = "http://localhost:8084/api/bitacora";
+  private baseUrl = "http://localhost:8084/api/bitacoras";
 
   constructor(private httpClient: HttpClient) {
   }
