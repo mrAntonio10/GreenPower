@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { BitacoraComponent } from './principal/bitacora/bitacora.component';
 import {CommonModule} from "@angular/common";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
@@ -22,7 +21,6 @@ import { PruebaTablaComponent } from './principal/prueba-tabla/prueba-tabla.comp
 import {MatPaginatorModule} from "@angular/material/paginator";
 @NgModule({
   declarations: [
-    BitacoraComponent,
     LogInComponent,
     RegistroComponent,
     ParametrosComponent,
