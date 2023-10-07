@@ -23,8 +23,11 @@ public class Arduino implements Serializable {
     @Column(name = "SENSOR_ACTUADOR")
     private String sensor_actuador;
 
-    @Column(name = "PARAMETRO")
+    @Column(name = "PARAMETROMAX")
     private Float parametro;
+
+    @Column(name = "PARAMETROMIN")
+    private Float parametroMin;
 
     @Column(name = "ESTADO")
     private Boolean estado;

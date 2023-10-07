@@ -7,12 +7,16 @@ import {Arduino} from "../../model/arduino/arduino";
   providedIn: 'root'
 })
 export class ArduinoService {
-  private baseUrl = "http://localhost:8084/api/arduino";
+  private baseUrl = "http://localhost:8084/api/arduinos";
 
   constructor(private httpClient: HttpClient) {
   }
 
   getArduino(): Observable<Arduino[]>{
-    return this.httpClient.get<Arduino[]>(`${this.baseUrl}/findAll`)
+    return this.httpClient.get<Arduino[]>(`${this.baseUrl}`)
+  }
+
+  getArduinoById(id: number): Observable<Arduino[]>{
+    return this.httpClient.get<Arduino[]>(`${this.baseUrl}/`+id)
   }
 }
