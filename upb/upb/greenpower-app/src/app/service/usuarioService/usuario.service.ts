@@ -15,4 +15,7 @@ export class UsuarioService {
   getUsuarioList(): Observable<Usuario[]>{
     return this.httpClient.get<Usuario[]>(`${this.baseUrl}`)
   }
+
+
+
 }
