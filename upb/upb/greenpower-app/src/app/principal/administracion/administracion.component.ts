@@ -17,7 +17,8 @@ export class AdministracionComponent implements OnInit {
 
   // constructor(private router: Router) {
   // }
-  constructor(private usuarioService: UsuarioService,) {
+  constructor(private usuarioService: UsuarioService,
+              private router: Router) {
   }
 
   displayedColumns: string[] = ['id', 'nombre', 'Rol', 'Estado', 'IdVivero']; //Headers table
@@ -31,6 +32,9 @@ export class AdministracionComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
+  navegar(ruta : string) {
+    this.router.navigate(['/'+ruta]);
+  }
   // @ts-ignore
   obtenerUsuarios(): Usuario[] {
     this.usuarioService.getUsuarioList().subscribe((data: any) => {
@@ -38,8 +42,6 @@ export class AdministracionComponent implements OnInit {
       this.usuarios = data;
     });
 
-    // navegar(ruta : string) {
-    //   this.router.navigate(['/'+ruta]);
-    // }
+
   }
 }

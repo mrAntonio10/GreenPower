@@ -12,7 +12,8 @@ import {MatPaginator} from "@angular/material/paginator";
   styleUrls: ['./parametros.component.css']
 })
 export class ParametrosComponent implements OnInit {
-  constructor(private viveroArduinoPlantaService: ViveroArduinoPlantaService,) {
+  constructor(private viveroArduinoPlantaService: ViveroArduinoPlantaService,
+              private router: Router,) {
   }
 
   displayedColumns: string[] = ['id', 'idVivero', 'idPlanta', 'IdArduino']; //Headers table
@@ -26,6 +27,9 @@ export class ParametrosComponent implements OnInit {
     this.obtenerVaps(1);
     this.dataSource.paginator = this.paginator;
   }
+  navegar(ruta : string) {
+    this.router.navigate(['/'+ruta]);
+  }
 
   // @ts-ignore
   obtenerVaps(id: number): ViveroArduinoPlanta[] {
@@ -34,9 +38,7 @@ export class ParametrosComponent implements OnInit {
       this.vaps = data;
     });
 
-    // navegar(ruta : string) {
-    //   this.router.navigate(['/'+ruta]);
-    // }
+
 
   }
 }
