@@ -13,9 +13,11 @@ export class PruebaTablaComponent implements OnInit {
   constructor(private arduinoService: ArduinoService,
               ) {}
 
-  displayedColumns: string[] = ['id', 'nombre', 'Sensor_Actuador', 'ParametroMax', 'ParametroMin', 'Estado']; //Headers table
+  displayedColumns: string[] = ['id', 'nombre']; //Headers table
   arduinos: Arduino[] = []; //lista de respuesta REST
-  dataSource = new MatTableDataSource<Arduino>(this.arduinos);  //data
+  // dataSource = new MatTableDataSource<Arduino>(this.arduinos);  //data
+  dataSource: any;
+
   // @ts-ignore
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -23,13 +25,14 @@ export class PruebaTablaComponent implements OnInit {
 
   ngOnInit() {
    this.obtenerArduinos();
-   this.dataSource.paginator = this.paginator;
   }
   // @ts-ignore
   obtenerArduinos(): Arduino[]{
     this.arduinoService.getArduinos().subscribe((data: any) => {
       console.log(data);
       this.arduinos = data;
+      this.dataSource = new MatTableDataSource<Arduino>(this.arduinos);
+      this.dataSource.paginator = this.paginator;
     });
   }
 }

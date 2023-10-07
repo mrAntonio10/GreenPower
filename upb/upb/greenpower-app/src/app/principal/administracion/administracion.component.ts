@@ -12,7 +12,7 @@ export class AdministracionComponent {
   constructor(private router: Router) {
   }
   @ViewChild(MatTable) tabla1!: MatTable<any>;
- 
+
   navegar(ruta : string) {
     this.router.navigate(['/'+ruta]);
   }
