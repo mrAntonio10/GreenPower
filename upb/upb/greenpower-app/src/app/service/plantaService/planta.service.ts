@@ -7,12 +7,16 @@ import {Planta} from "../../model/planta/planta";
   providedIn: 'root'
 })
 export class PlantaService {
-  private baseUrl = "http://localhost:8084/api/planta";
+  private baseUrl = "http://localhost:8084/api/plantas";
 
   constructor(private httpClient: HttpClient) {
   }
 
-  getPlantaList(): Observable<Planta[]>{
-    return this.httpClient.get<Planta[]>(`${this.baseUrl}/findAll`)
+  getPlantasList(): Observable<Planta[]>{
+    return this.httpClient.get<Planta[]>(`${this.baseUrl}`)
+  }
+
+  getPlantaById(id: number): Observable<Planta[]>{
+    return this.httpClient.get<Planta[]>(`${this.baseUrl}/`+id)
   }
 }

@@ -12,7 +12,7 @@ export class ArduinoService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getArduino(): Observable<Arduino[]>{
+  getArduinos(): Observable<Arduino[]>{
     return this.httpClient.get<Arduino[]>(`${this.baseUrl}`)
   }
 

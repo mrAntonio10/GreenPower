@@ -12,10 +12,7 @@ export class AdministracionComponent {
   constructor(private router: Router) {
   }
   @ViewChild(MatTable) tabla1!: MatTable<any>;
-  columnas: string[] = ['codigo', 'descripcion', 'precio', 'borrar'];
-  datos: any[] = [
-    '1', 'Marcoro', '299', 'si'
-  ]
+ 
   navegar(ruta : string) {
     this.router.navigate(['/'+ruta]);
   }
