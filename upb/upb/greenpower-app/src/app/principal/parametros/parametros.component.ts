@@ -16,16 +16,15 @@ export class ParametrosComponent implements OnInit {
               private router: Router,) {
   }
 
-  displayedColumns: string[] = ['id', 'idVivero', 'idPlanta', 'IdArduino']; //Headers table
+  displayedColumns: string[] = ['id', 'idPlanta', 'IdArduino']; //Headers table
   vaps: ViveroArduinoPlanta[] = []; //lista de respuesta REST
-  dataSource = new MatTableDataSource<ViveroArduinoPlanta>(this.vaps);  //data
+  dataSource: any;
 
   // @ts-ignore
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit() {
     this.obtenerVaps(1);
-    this.dataSource.paginator = this.paginator;
   }
   navegar(ruta : string) {
     this.router.navigate(['/'+ruta]);
@@ -36,6 +35,8 @@ export class ParametrosComponent implements OnInit {
     this.viveroArduinoPlantaService.getVAPArduinoList(id).subscribe((data: any) => {
       console.log(data);
       this.vaps = data;
+      this.dataSource = new MatTableDataSource<ViveroArduinoPlanta>(this.vaps);
+      this.dataSource.paginator = this.paginator;
     });
 
 

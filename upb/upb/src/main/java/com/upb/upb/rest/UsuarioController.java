@@ -2,6 +2,7 @@ package com.upb.upb.rest;
 
 import com.upb.upb.db.model.Usuario;
 import com.upb.upb.db.service.UsuarioService;
+import com.upb.upb.dto.UsuarioDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,11 +23,11 @@ public class UsuarioController {
     @Autowired
     UsuarioService usuarioService;
 
-    @GetMapping("")
-    public ResponseEntity<List<Usuario>> usuarioFindAll(){
+    @GetMapping("/{id}")
+    public ResponseEntity<List<UsuarioDto>> usuarioFindAll(@PathVariable Long id){
         try{
             log .info("Accediendo a listar todos los usuarios");
-            return ok(usuarioService.findAll());
+            return ok(usuarioService.findAllByIdVivero(id));
         } catch (Exception e){
             log.info("Error inesperado {}", e);
             return ResponseEntity.badRequest().body(null);

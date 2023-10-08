@@ -31,4 +31,7 @@ public class Arduino implements Serializable {
 
     @Column(name = "ESTADO")
     private Boolean estado;
+
+    @Column (name = "PIN")
+    private Float pin;
 }

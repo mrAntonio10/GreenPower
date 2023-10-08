@@ -21,25 +21,26 @@ export class AdministracionComponent implements OnInit {
               private router: Router) {
   }
 
-  displayedColumns: string[] = ['id', 'nombre', 'Rol', 'Estado', 'IdVivero']; //Headers table
+  displayedColumns: string[] = ['id', 'nombre', 'nombreCompleto', 'Estado',]; //Headers table
   usuarios: Usuario[] = []; //lista de respuesta REST
-  dataSource = new MatTableDataSource<Usuario>(this.usuarios);  //data
+  dataSource: any;
   // @ts-ignore
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit() {
-    this.obtenerUsuarios();
-    this.dataSource.paginator = this.paginator;
+    this.obtenerUsuarios(1);
   }
 
   navegar(ruta : string) {
     this.router.navigate(['/'+ruta]);
   }
   // @ts-ignore
-  obtenerUsuarios(): Usuario[] {
-    this.usuarioService.getUsuarioList().subscribe((data: any) => {
+  obtenerUsuarios(id: number): Usuario[] {
+    this.usuarioService.getUsuarioList(id).subscribe((data: any) => {
       console.log(data);
       this.usuarios = data;
+      this.dataSource = new MatTableDataSource<Usuario>(this.usuarios);
+      this.dataSource.paginator = this.paginator;
     });
 
 

@@ -39,7 +39,7 @@ public class ArduinoServiceImpl implements ArduinoService {
             arduino.setSensor_actuador(arduinoDto.getSensor_actuador());
             arduino.setParametro(arduinoDto.getParametro());
             arduino.setEstado(false);
-
+            arduino.setPin(arduinoDto.getPin());
             arduino = arduinoRepository.save(arduino);
             return arduino.getId();
         } else {    //actualizar arduino
@@ -53,6 +53,7 @@ public class ArduinoServiceImpl implements ArduinoService {
             arduino.setEstado(arduinoDto.getEstado());
             arduino.setSensor_actuador(arduinoDto.getSensor_actuador());
             arduino.setParametro(arduinoDto.getParametro());
+            arduino.setPin(arduinoDto.getPin());
 
             arduino = arduinoRepository.save(arduino);
             return arduino.getId();

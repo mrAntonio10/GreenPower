@@ -28,6 +28,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     ActivacionActuadoresComponent,
     AppComponent,
     PruebaTablaComponent,
+    AdministracionComponent
   ],
   imports: [
     BrowserModule,

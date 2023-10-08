@@ -13,9 +13,9 @@ export class ViveroArduinoPlantaService {
   }
 
   getViveroArduinoPlantaList(id: number): Observable<ViveroArduinoPlanta[]>{
-    return this.httpClient.get<ViveroArduinoPlanta[]>(`${this.baseUrl}`+id)
+    return this.httpClient.get<ViveroArduinoPlanta[]>(`${this.baseUrl}/`+id)
   }
   getVAPArduinoList(idArduino: number): Observable<ViveroArduinoPlanta[]>{
-    return this.httpClient.get<ViveroArduinoPlanta[]>(`${this.baseUrl}`+idArduino)
+    return this.httpClient.get<ViveroArduinoPlanta[]>(`${this.baseUrl}/`+idArduino)
   }
 }

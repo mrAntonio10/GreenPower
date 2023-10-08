@@ -5,11 +5,13 @@ import com.upb.upb.db.model.Vivero;
 import com.upb.upb.db.repository.UsuarioRepository;
 import com.upb.upb.db.repository.ViveroRepository;
 import com.upb.upb.db.service.UsuarioService;
+import com.upb.upb.dto.UsuarioDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -24,8 +26,20 @@ public class UsuarioServiceImpl implements UsuarioService {
     private ViveroRepository viveroRepository;
 
     @Override
-    public List<Usuario> findAll() {
-            return  usuarioRepository.findAllByEstadoFalse();
+    public List<UsuarioDto> findAllByIdVivero(Long id) {
+        List<Usuario> usuarioList = usuarioRepository.findAllByViveroIdAndEstadoFalse(id);
+        List<UsuarioDto> dtos = new ArrayList<>();
+
+        for (Usuario item: usuarioList) {
+            UsuarioDto dto = new UsuarioDto();
+            dto.setId(item.getId());
+            dto.setNombre(item.getNombre());
+            dto.setNombreCompleto(item.getNombreCompleto());
+            dto.setEstado(item.getEstado());
+
+            dtos.add(dto);
+        }
+        return dtos;
     }
 
     @Override

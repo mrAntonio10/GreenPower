@@ -11,7 +11,8 @@ import java.util.Optional;
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 @Query(" SELECT u FROM Usuario u " +
         " INNER JOIN FETCH u.vivero v" +
-        " WHERE u.estado = false AND v.estado = false")
-    public List<Usuario> findAllByEstadoFalse();
+        " WHERE v.id = :idVivero AND " +
+        " u.estado = false AND v.estado = false")
+    public List<Usuario> findAllByViveroIdAndEstadoFalse(@Param("idVivero") Long idVivero);
     Optional<Usuario> findByIdAndEstadoFalse(@Param("id") Long id);
 }
