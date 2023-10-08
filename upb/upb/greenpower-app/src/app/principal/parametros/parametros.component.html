@@ -12,48 +12,6 @@
   </div>
 </div>
 
-<div class="mat-elevation-z8">
-
-  <mat-table [dataSource]="dataSource">
-
-    <!-- Position Column -->
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef> No. </th>
-      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-    </ng-container>
-
-    <!-- Name Column -->
-    <ng-container matColumnDef="idPlanta">
-      <th mat-header-cell *matHeaderCellDef> Planta </th>
-      <td mat-cell *matCellDef="let element"> {{element?.planta?.nombre}} </td>
-    </ng-container>
-
-    <!-- Rol Column -->
-    <ng-container matColumnDef="IdArduino">
-      <th mat-header-cell *matHeaderCellDef> Arduino </th>
-      <td mat-cell *matCellDef="let element"> {{element?.arduino?.nombre}} </td>
-    </ng-container>
-
-
-
-    <!--    &lt;!&ndash; Weight Column &ndash;&gt;-->
-    <!--    <ng-container matColumnDef="weight">-->
-    <!--      <th mat-header-cell *matHeaderCellDef> Weight </th>-->
-    <!--      <td mat-cell *matCellDef="let element"> {{element.parametroMax}} </td>-->
-    <!--    </ng-container>-->
-
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </mat-table>
-
-  <mat-paginator [pageSizeOptions]="[1, 2]"
-                 showFirstLastButtons
-                 aria-label="Select page of periodic elements">
-  </mat-paginator>
-</div>
-
-<hr>
 <div class="boton" >
   <h1>Ajuste de parámetros</h1>
 
@@ -61,6 +19,51 @@
     <div class="container">
 
         <div class="box">
+
+          <div class="mat-elevation-z8">
+
+            <mat-table [dataSource]="dataSource" class="centered-table">
+
+              <!-- Position Column -->
+              <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> No. </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+              </ng-container>
+
+              <!-- Name Column -->
+              <ng-container matColumnDef="idPlanta">
+                <th mat-header-cell *matHeaderCellDef> Planta </th>
+                <td mat-cell *matCellDef="let element"> {{element?.planta?.nombre}} </td>
+              </ng-container>
+
+              <!-- Rol Column -->
+              <ng-container matColumnDef="IdArduino">
+                <th mat-header-cell *matHeaderCellDef> Arduino </th>
+                <td mat-cell *matCellDef="let element"> {{element?.arduino?.nombre}} </td>
+              </ng-container>
+
+
+
+              <!--    &lt;!&ndash; Weight Column &ndash;&gt;-->
+              <!--    <ng-container matColumnDef="weight">-->
+              <!--      <th mat-header-cell *matHeaderCellDef> Weight </th>-->
+              <!--      <td mat-cell *matCellDef="let element"> {{element.parametroMax}} </td>-->
+              <!--    </ng-container>-->
+
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </mat-table>
+
+            <mat-paginator [pageSizeOptions]="[1, 2]"
+                           showFirstLastButtons
+                           aria-label="Select page of periodic elements">
+            </mat-paginator>
+          </div>
+
+          <hr>
+
+
           <span>Parámetros de humedad</span>
           <div class="input-box">
             <div>

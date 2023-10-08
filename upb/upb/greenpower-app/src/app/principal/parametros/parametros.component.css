@@ -78,3 +78,8 @@ h1{
   transition: all 0.3s linear;
   cursor: pointer;
 }
+
+.centered-table {
+  display: table;
+  margin: 0 auto;
+}

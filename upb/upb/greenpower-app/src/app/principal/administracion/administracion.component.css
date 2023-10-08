@@ -106,3 +106,8 @@ h1{
   font-size: 14px;
   font-weight: 400;
 }
+
+.centered-table {
+  display: table;
+  margin: 0 auto;
+}
