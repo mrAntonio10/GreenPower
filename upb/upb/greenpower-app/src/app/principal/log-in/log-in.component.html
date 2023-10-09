@@ -7,20 +7,19 @@
 
     </div>
 
-    <form class="sign-in-form" method="POST" autocomplete="off">
-
+    <form autocomplete="off" [formGroup]="form">
       <div class="input-field">
-        <input type="text" class="input" placeholder="Nombre de Usuario" name="nombre_usuario_administrador" required>
+        <input type="text" class="input" placeholder="Nombre de Usuario" name="nombre_usuario_administrador"  formControlName="nombre">
         <i class='bx bx-user'></i>
       </div>
 
       <div class="input-field">
-        <input type="Password" class="input" placeholder="Contraseña" name="password" required>
+        <input type="Password" class="input" placeholder="Contraseña" name="password"  formControlName="password">
         <i class='bx bx-lock-alt'></i>
       </div>
 
       <div class="input-field">
-        <input type="submit" class="submit" value="Iniciar Sesión" (click)="navegar()">
+        <input type="submit" class="submit" value="Iniciar Sesión" (click)="submitForm()"  [disabled]="!form.valid">
       </div>
     </form>
 

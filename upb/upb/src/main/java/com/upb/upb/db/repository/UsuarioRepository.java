@@ -15,4 +15,10 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
         " u.estado = false AND v.estado = false")
     public List<Usuario> findAllByViveroIdAndEstadoFalse(@Param("idVivero") Long idVivero);
     Optional<Usuario> findByIdAndEstadoFalse(@Param("id") Long id);
+
+    @Query(" SELECT u FROM Usuario u " +
+            " INNER JOIN FETCH u.vivero v" +
+            " WHERE u.estado = false AND v.estado = false AND " +
+            " u.nombre = :nombre AND u.password = :password ")
+    Optional<Usuario> findByNombreAndAndPasswordAndEstadoFalse(@Param("nombre") String nombre, @Param("password") String password);
 }

@@ -9,4 +9,6 @@ public interface UsuarioService {
     List<UsuarioDto> findAllByIdVivero(Long id);
 
     Long save(Usuario usuarioDto);
+
+    Boolean findByUsernameAndPassword(String nombre, String password);
 }

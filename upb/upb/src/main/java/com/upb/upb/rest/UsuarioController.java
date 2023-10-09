@@ -34,6 +34,24 @@ public class UsuarioController {
         }
     }
 
+    @GetMapping("/{nombre}/{password}")
+    public ResponseEntity<Boolean> usuarioFindAll(@PathVariable String nombre, @PathVariable String password){
+        try{
+            log .info("Solicitud de acceso por usuario");
+            return ok(usuarioService.findByUsernameAndPassword(nombre, password));
+        } catch (Exception e){
+            log.info("Error inesperado {}", e);
+            log.info("Error inesperado {}", e);
+
+
+            Map<String, Object> responseBody = new HashMap<>();
+            responseBody.put("mensaje", "Usuario " + nombre + " no encontrado");
+            responseBody.put("status", HttpStatus.NOT_FOUND.value() + " " + HttpStatus.NOT_FOUND.getReasonPhrase());
+
+            return ResponseEntity.badRequest().body(null);
+        }
+    }
+
     @PostMapping("")
     ResponseEntity<Long> guardarUsuario(@RequestBody Usuario usuarioNuevo) {
         try {

@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import {CommonModule} from "@angular/common";
 import {HttpClientModule} from "@angular/common/http";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { LogInComponent } from './principal/log-in/log-in.component';
 import { RegistroComponent } from './principal/registro/registro.component';
 import { ParametrosComponent } from './principal/parametros/parametros.component';
@@ -41,7 +41,8 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     MatTableModule,
     MatInputModule,
     MatButtonModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
