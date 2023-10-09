@@ -49,11 +49,12 @@ public class ArduinoServiceImpl implements ArduinoService {
             }
             Arduino arduino = arduinoOpt.get();
 
-            arduino.setNombre(arduinoDto.getNombre());
-            arduino.setEstado(arduinoDto.getEstado());
-            arduino.setSensor_actuador(arduinoDto.getSensor_actuador());
+//            arduino.setNombre(arduinoDto.getNombre());
+//            arduino.setEstado(arduinoDto.getEstado());
+//            arduino.setSensor_actuador(arduinoDto.getSensor_actuador());
             arduino.setParametro(arduinoDto.getParametro());
-            arduino.setPin(arduinoDto.getPin());
+            arduino.setParametroMin(arduinoDto.getParametroMin());
+//            arduino.setPin(arduinoDto.getPin());
 
             arduino = arduinoRepository.save(arduino);
             return arduino.getId();

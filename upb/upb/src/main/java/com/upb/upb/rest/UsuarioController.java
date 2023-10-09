@@ -19,6 +19,7 @@ import static org.springframework.http.ResponseEntity.ok;
 @Slf4j
 @RestController
 @RequestMapping("/api/usuarios")
+@CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST})
 public class UsuarioController {
     @Autowired
     UsuarioService usuarioService;

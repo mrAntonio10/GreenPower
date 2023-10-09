@@ -8,3 +8,11 @@ export class Arduino {
   parametroMin: number = 0;
 
 }
+
+export interface ArduinoI {
+
+  id: number;
+  parametro: number;
+  parametroMin: number;
+
+}

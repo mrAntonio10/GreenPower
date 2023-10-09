@@ -15,7 +15,6 @@
 <div class="boton" >
   <h1>Ajuste de parámetros</h1>
 
-  <form autocomplete="off">
     <div class="container">
 
         <div class="box">
@@ -55,7 +54,7 @@
               <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </mat-table>
 
-            <mat-paginator [pageSizeOptions]="[1, 2]"
+            <mat-paginator [pageSizeOptions]="[5, 10, 100]"
                            showFirstLastButtons
                            aria-label="Select page of periodic elements">
             </mat-paginator>
@@ -63,38 +62,42 @@
 
           <hr>
 
-
+          <form autocomplete="off" [formGroup]="formHumedad" >
           <span>Parámetros de humedad</span>
           <div class="input-box">
             <div>
-              <input type="number" name="diagnostico" placeholder="Máximo" required>
+              <input type="number" name="diagnostico" placeholder="Máximo" required formControlName="parametro">
             </div>
             <div>
-              <input type="number" name="diagnostico" placeholder="Mínimo" required>
+              <input type="number" name="diagnostico" placeholder="Mínimo" required formControlName="parametroMin">
             </div>
           </div>
+            <button (click)="updateArduinoHumedad()">
+              <span>Confirmar</span>
+            </button>
+          </form>
         </div>
 
       <div class="box">
+        <form autocomplete="off" [formGroup]="formTemperatura" >
         <span>Parámetros de temperatura</span>
-        <div class="input-box">
-          <div>
-            <input type="number" name="diagnostico" placeholder="Máximo" required>
+          <div class="input-box">
+            <div>
+              <input type="number" name="diagnostico" placeholder="Máximo" required formControlName="parametro">
+            </div>
+            <div>
+              <input type="number" name="diagnostico" placeholder="Mínimo" required formControlName="parametroMin">
+            </div>
           </div>
-          <div>
-            <input type="number" name="diagnostico" placeholder="Mínimo" required>
-          </div>
-        </div>
+          <button (click)="updateArduinoTemperatura()">
+            <span>Confirmar</span>
+          </button>
+        </form>
       </div>
       <br>
       <button (click)="navegar('menu-principal')">
         <span>Atras</span>
       </button>
       <br>
-      <button>
-        <span>Confirmar</span>
-      </button>
-
     </div>
-  </form>
 </div>

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {LoginI, Usuario} from "../../model/usuario/usuario";
+import {LoginI, Usuario, UsuarioI} from "../../model/usuario/usuario";
 import {ResponseI} from "../../model/response/responseI";
 
 @Injectable({
@@ -17,10 +17,9 @@ export class UsuarioService {
     return this.httpClient.get<Usuario[]>(`${this.baseUrl}/`+id);
   }
 
-  addNuevoUsuario(usuario: Usuario): Observable<Usuario>{
-    return this.httpClient.post<Usuario>(`${this.baseUrl}`, usuario);
+  addNuevoUsuario(usuario: UsuarioI): Observable<UsuarioI> {
+    return this.httpClient.post<UsuarioI>(`${this.baseUrl}`, usuario);
   }
-
   // @ts-ignore
   loginResponse(form: LoginI): Observable<any>{
     return this.httpClient.get<any>(`${this.baseUrl}/`+form.nombre+`/`+form.password);

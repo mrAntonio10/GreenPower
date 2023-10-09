@@ -7,6 +7,7 @@ import {MatPaginator} from "@angular/material/paginator";
 import {Usuario} from "../../model/usuario/usuario";
 import {UsuarioService} from "../../service/usuarioService/usuario.service";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {HttpHeaders} from "@angular/common/http";
 
 @Component({
   selector: 'app-administracion',
@@ -14,6 +15,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./administracion.component.css']
 })
 export class AdministracionComponent implements OnInit {
+
   displayedColumns: string[] = ['id', 'nombre', 'nombreCompleto', 'Estado',]; //Headers table
   usuarios: Usuario[] = []; //lista de respuesta REST
   dataSource: any;
@@ -31,13 +33,13 @@ export class AdministracionComponent implements OnInit {
   ngOnInit() {
     this.obtenerUsuarios(1);
 
-
-    // @ts-ignore
     this.form = new FormGroup({
       rol: new FormControl([Validators.required]),
       nombre:new FormControl('', [Validators.required]),
       password:new FormControl('', [Validators.required]),
       nombreCompleto: new FormControl('', [Validators.required]),
+      estado: new FormControl(false),
+      vivero: new FormControl({ id: 1 }),
     });
   }
   navegar(ruta : string) {
@@ -45,8 +47,15 @@ export class AdministracionComponent implements OnInit {
   }
 
   saveNewUsuario(){
+    console.log(this.form.value)
     this.usuarioService.addNuevoUsuario(this.form.value).subscribe(data => {
-      console.log(data)
+      const options = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json'
+        }),
+        withCredentials: false  // Set this to false to disable sending credentials
+      };
+
     });
   }
   // @ts-ignore

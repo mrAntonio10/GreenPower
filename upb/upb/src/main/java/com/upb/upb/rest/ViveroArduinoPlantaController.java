@@ -18,6 +18,7 @@ import static org.springframework.http.ResponseEntity.ok;
 @Slf4j
 @RestController
 @RequestMapping("/api/vaps")
+@CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST})
 public class ViveroArduinoPlantaController {
     @Autowired
     ViveroArduinoPlantaService vapService;

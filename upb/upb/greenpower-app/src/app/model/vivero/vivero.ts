@@ -5,3 +5,8 @@ export class Vivero {
   ubicacion: string = "";
   estado: boolean = false;
 }
+
+
+export interface ViveroI {
+  id: number;
+}

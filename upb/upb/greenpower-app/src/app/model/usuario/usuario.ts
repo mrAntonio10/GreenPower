@@ -1,12 +1,27 @@
+import {Vivero, ViveroI} from "../vivero/vivero";
+
 export class Usuario {
 
-  id: number = 0;
   nombre: string = '';
-  rol: number = 0;
-  nombreCompleto = '';
-  estado: boolean = false;
   password = '';
-  id_vivero: number = 0;
+  nombreCompleto = '';
+  rol: number = 0;
+  estado: boolean = false;
+  vivero: number = 0;
+
+
+}
+
+export interface UsuarioI {
+
+  nombre: string;
+  password: string;
+  nombreCompleto: string;
+  rol: number;
+  estado: boolean;
+  vivero: ViveroI;
+
+
 }
 
 export interface LoginI {
